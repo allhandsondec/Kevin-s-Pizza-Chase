@@ -1,0 +1,52 @@
+enum SpriteKind {
+    Player,
+    Projectile,
+    Food,
+    Enemy
+}
+let mySprite2: Sprite = null
+let mySprite: Sprite = null
+let pizza: Sprite = null
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    mySprite.setPosition(Math.randomRange(20, 140), Math.randomRange(20, 80))
+})
+scene.setBackgroundColor(7)
+pizza = sprites.create(img`
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . e e e e e . . . . . . .
+    . . . . 2 5 2 5 2 . . . . . . .
+    . . . . 5 2 5 2 5 . . . . . . .
+    . . . . 2 5 2 5 2 . . . . . . .
+    . . . . 5 2 5 2 5 . . . . . . .
+    . . . . 2 5 2 5 2 . . . . . . .
+    . . . . . 2 5 2 . . . . . . . .
+    . . . . . 5 2 5 . . . . . . . .
+    . . . . . 2 5 2 . . . . . . . .
+    . . . . . . 5 . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.Food)
+controller.moveSprite(mySprite)
+mySprite2 = sprites.create(img`
+    . . . . . . . . . . . . . . . .
+    . . . 5 5 5 5 5 5 5 5 5 5 . . .
+    . . . 5 5 5 f 5 f 5 5 5 5 . . .
+    . . . 5 5 5 f 5 f 5 5 5 5 . . .
+    . . . 5 5 5 5 5 5 5 5 5 5 . . .
+    . . . 5 5 5 f 5 f 5 5 5 . . . .
+    . . . . 5 5 5 f 5 5 5 . . . . .
+    . . . . . 5 5 5 5 5 . . . . . .
+    . . . . . 5 5 5 5 5 . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+`, SpriteKind.Player)
+info.startCountdown(3)
